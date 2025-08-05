@@ -116,7 +116,7 @@ class WSCleanModel(Model):
 
     def insert_into(self, ms: MeasurementSet):
         wsclean_cmd = [
-            "wsclean",
+            "singularity exec /n/home10/kortizceballos/containers/polkat-0.1.2.sif wsclean",
             "-multiscale",
             "-pol iquv",
             f"-name {self.name}",
@@ -344,7 +344,7 @@ class WSClean:
     def run(self, ms: MeasurementSet, name: str):
         # Add all essential arguments
         wsclean_cmd = [
-            "wsclean",
+            "singularity exec /n/home10/kortizceballos/containers/polkat-0.1.2.sif wsclean",
             f"-name {name}",
             f"-size {self.imsize} {self.imsize}",
             f"-scale {self.cellsize}",
